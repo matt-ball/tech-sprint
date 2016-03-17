@@ -8,7 +8,9 @@ var mysql = require('mysql');
 function getOrders(i, result, rows, cb) {
   api.retrieveBooking(rows[i].store_id, rows[i].order_number, function(data) {
     data = JSON.parse(data);
+    console.log(data.data);
     result.push({
+      store: data.data.store.storeId,
       img: data.data.store.imageUrl,
       status: data.data.status,
       time: new Date(data.data.timeslot.startTime).toUTCString(),

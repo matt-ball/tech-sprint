@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title= title
+    title #{page}
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/js/jquery.fullPage.css')
     link(rel='stylesheet', href='http://fonts.googleapis.com/icon?family=Material+Icons')
@@ -36,7 +36,7 @@ html
             a(href="#") History
           li
             a(href="#") Log out
-        img(src="/")
+        img.logo(src="/images/q-tracker.png")
         a.button-collapse.right(data-activates="slide-out")
           i.mdi-navigation-menu.orange.center
           script(type='text/javascript', src='/js/materialize.min.js')

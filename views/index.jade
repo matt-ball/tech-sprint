@@ -1,5 +1,11 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+html
+  head
+    title #{page}
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body(class='#{className}')
+    img.logo(src="/images/q-tracker.png")
+    input(type="text", class="login-input", placeholder="Email")
+    input(type="password", class="login-input", placeholder="Password")
+    a(href="/deliveries", class="login-input login-button") Login

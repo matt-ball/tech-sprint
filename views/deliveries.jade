@@ -8,14 +8,18 @@ block content
   each val, index in results
     div.delivery
       div.retailer-img
-        img(src= val.img)
+        a(href="/delivery/#{val.store}/#{val.order}")
+          img(src= val.img)
       div.stats
-        p 
-          span Status: 
-          | #{val.status}
-        p 
-          span Expected arrival: 
-          | #{val.time}
-        p
-          span Order No: 
-          | #{val.order}
+        a(href="/delivery/#{val.store}/#{val.order}")
+          p 
+            span Status: 
+            | #{val.status}
+        a(href="/delivery/#{val.store}/#{val.order}")
+          p 
+            span Expected arrival: 
+            | #{val.time}
+        a(href="/delivery/#{val.store}/#{val.order}")
+          p
+            span Order No: 
+            | #{val.order}
