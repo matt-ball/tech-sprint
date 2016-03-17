@@ -3,5 +3,51 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/js/jquery.fullPage.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/icon?family=Material+Icons')
+    link(rel='stylesheet', href='/stylesheets/materialize.min.css')
+    script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(type='text/javascript', src='/js/jquery.easings.min.js')
+    script(type='text/javascript', src='/js/jquery.slimscroll.min.js')
+    script(type='text/javascript', src='/js/jquery.fullPage.js')
+    script(type='text/javascript', src='/js/script.js')
+    script $(document).ready(function() {$('#fullpage').fullpage({paddingTop: 0, responsiveHeight: 1})});
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    
   body
-    block content
+    div.sticky
+      nav.white.text-red
+        ul.right.hide-on-med-and-down
+          li
+            a(href="#") Profile
+          li
+            a(href="#") Deliveries List
+          li
+            a(href="#") History
+          li
+          a(href="#") Log out
+
+        ul#slide-out.side-nav.right
+          li
+            a(href="#") Profile
+          li
+            a(href="#") Deliveries List
+          li
+            a(href="#") History
+          li
+            a(href="#") Log out
+        a(href="#").brand-logo.left Logo
+        a.button-collapse.right(data-activates="slide-out")
+          i.mdi-navigation-menu.orange.center
+          script(type='text/javascript', src='/js/materialize.min.js')
+          script  $('.button-collapse').sideNav({menuWidth: 200, edge: 'right', closeOnClick: true})
+      div.page
+        h1 #{page}
+      block sticky  
+    div.main
+      block content
+    
+    script $(function(){jQuery("img.svg").each(function(){var a=jQuery(this),b=a.attr("id"),c=a.attr("class"),d=a.attr("src");jQuery.get(d,function(d){var e=jQuery(d).find("svg");"undefined"!=typeof b&&(e=e.attr("id",b)),"undefined"!=typeof c&&(e=e.attr("class",c+" replaced-svg")),e=e.removeAttr("xmlns:a"),!e.attr("viewBox")&&e.attr("height")&&e.attr("width")&&e.attr("viewBox","0 0 "+e.attr("height")+" "+e.attr("width")),a.replaceWith(e)},"xml")})});
+
+
+

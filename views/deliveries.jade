@@ -1,0 +1,21 @@
+extends layout
+block sticky
+  div.filters
+    div.tab Filter by:
+    div.tab.tab-retailer Retailer
+    div.tab.tab-date.active Date
+block content
+  each val, index in results
+    div.delivery
+      div.retailer-img
+        img(src= val.img)
+      div.stats
+        p 
+          span Status: 
+          | #{val.status}
+        p 
+          span Expected arrival: 
+          | #{val.time}
+        p
+          span Order No: 
+          | #{val.order}
