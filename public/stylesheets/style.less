@@ -17,31 +17,66 @@ body {
 
 //Polly
 body .row .col{
-  padding:0;
-  margin-top: -7px;
+ padding:0;
+ margin-top: -7px;
 }
 #fullpage{
-  top: 20px;
-  z-index:-100;
+ top: 160px;
+ z-index:-100;
 }
 #fullpage .section p{
-  height: 220px;
+ height: 220px;
 }
 #container{
-  height: 60%;
-  margin-top: 40%;
+ height: 60%;
 }
-svg {width: 10px; height: 200px;}
 svg path {fill: orange !important;}
 
 #sidenav-overlay{
-  opacity:0!important;
+ opacity:0!important;
 }
 .mdi-navigation-menu{
-  width:70px;
+ width:70px;
+}
+
+.section{
+ p{
+   float: right;
+   text-align: left;
+   width: 60%;
+ }
+ svg{
+   margin-top: -100px;
+   height: 300%;
+   margin-left: -140px;
+   position: absolute;
+ }
+}
+.details{
+ padding: 20px 5px 20px 30px;
+ font-size: 20px;
+}
+.deliveryImg{
+ width:30%; 
+ float:left;
+ height: 100px;
+ overflow-y: hidden;
+ img{
+   margin:10px;
+   width:100%;
+ }
+}
+.deliveryText{
+ padding:30px;
+//  float:left;
+ width:70%;
+ margin-left:110px;
 }
 
 //Matt
+.brand-logo {
+  color: #000 !important;
+}
 .box-shadow {
   -webkit-box-shadow: 0px 2px 4px 0px rgba(50, 50, 50, 0.3);
   -moz-box-shadow: 0px 2px 4px 0px rgba(50, 50, 50, 0.3);
@@ -55,6 +90,9 @@ svg path {fill: orange !important;}
 }
 .main {
   margin-top: 102px;
+  &.deliveries {
+    margin-top: 157px;
+  }
 }
 .page {
   padding: 15px;

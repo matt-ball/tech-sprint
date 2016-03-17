@@ -1,24 +1,33 @@
 extends layout
 
 block content
- div.row
-  div.col.s12.m6
-    
-  div#container
-    div#fullpage
-      div.section.fp-auto-height
-        img#first.svg(src="/images/timeline.svg" alt="timeline")
-        p Booked
-      div.section.fp-auto-height
-        p Allocated to Driver
-        img#first.svg(src="/images/timeline.svg" alt="timeline")
-      div.section.fp-auto-height
-        p #{status}
-        img#first.svg(src="/images/timeline.svg" alt="timeline")
-      div.section.fp-auto-height
-        p #{status}
-        img#first(src="/images/timeline.svg" alt="timeline")
-      div.section.fp-auto-height
-        p #{status}
-        img#first(src="/images/timeline.svg" alt="timeline")
-      
+div.row
+ div.col.s12.m6
+   
+ div#container
+   div.card
+     div.deliveryImg
+       img(src=storeImage)
+     div.deliveryText
+       h6 
+         b Expected Arrival:
+       div #{deliveryDateStart}
+       div
+         b Order ID: #{orderId}
+       
+   div#fullpage(style="transform: translate3d(0px, -160px, 0px);")
+     div.details You can only amend or cancel your order if it is still in the booked state
+     div#first.section.fp-auto-height
+       p Booked
+       img.svg(src="/images/timeline.svg" alt="timeline")
+     div.section.fp-auto-height
+       p Allocated to Driver
+       img.svg(src="/images/timeline.svg" alt="timeline")
+     div.section.fp-auto-height
+       p #{status}
+       img.svg(src="/images/timeline.svg" alt="timeline")
+     div.section.fp-auto-height
+       p #{status}
+       img.svg(src="/images/timeline.svg" alt="timeline")
+     div.section.fp-auto-height
+       p #{status}

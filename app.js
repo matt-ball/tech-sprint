@@ -4,10 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 var routes = require('./routes/index');
 var deliveries = require('./routes/deliveries');
 var delivery = require('./routes/delivery');
+var post = require('./routes/post');
+var bodyParser = require("body-parser");
+//Here we are configuring express to use body-parser as middle-ware.
 
 var app = express();
 
@@ -17,6 +21,9 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', routes);
 app.get('/deliveries', deliveries);
 app.get('/delivery/:store/:order', delivery);
+app.post('/post', post);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

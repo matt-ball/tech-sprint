@@ -4,7 +4,7 @@ var mysql = require('mysql');
 // pull list of store ids and order ids
 // hit api for each of the above
 // print out
-var result = [];
+
 function getOrders(i, result, rows, cb) {
   api.retrieveBooking(rows[i].store_id, rows[i].order_number, function(data) {
     data = JSON.parse(data);
@@ -19,6 +19,7 @@ function getOrders(i, result, rows, cb) {
     else cb(result);
   });
 }
+
 function deliveries (req, res, next) {
   var connection = mysql.createConnection({
     host: 'localhost',
@@ -26,13 +27,17 @@ function deliveries (req, res, next) {
     password : 'password',
     database : 'tech_sprint'
   });
+
   connection.connect();
+
   connection.query('SELECT store_id, order_number FROM bookings WHERE email = "noel_gallagher@qubit.com"', function(err, rows, fields) {
     if (err) throw err;
     getOrders(0, [], rows, function(result) {
-      res.render('deliveries', { page: 'My Deliveries', results: result });
+      res.render('deliveries', { page: 'My Deliveries', className: 'deliveries', results: result });
     });
   });
+
   connection.end();
 }
+
 module.exports = deliveries;
